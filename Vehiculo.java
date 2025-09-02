@@ -16,14 +16,24 @@ public class Vehiculo {
         System.out.print("Tipo de Combustible: ");
         String combustible = input.nextLine();
 
-        System.out.print("Capacidad en pasajeros: ");
-        int pasajeros = input.nextInt();
+        int pasajeros = 0;
+        boolean entradaValida = false;
 
-        System.out.println("La marca que ha ingresado es: " + marca);
-        System.out.println("El modelo que ha ingresado es: " + modelo);
-        System.out.println("La cilindrada que ha ingresado es: " + cilindrada);
-        System.out.println("El tipo de combustible es: " + combustible);
-        System.out.println("Tiene una capacidad de " + pasajeros + " pasajeros.");
+        while (!entradaValida) {
+            System.out.print("Capacidad en pasajeros: ");
+            try {
+                pasajeros = Integer.parseInt(input.nextLine());
+                entradaValida = true;
+            } catch (NumberFormatException e) {
+                System.out.println("❌ ERROR: Debe ingresar un número entero. Intente nuevamente.");
+            }
+        }
+
+        System.out.println("\n✅ Datos ingresados:");
+        System.out.println("Marca: " + marca);
+        System.out.println("Modelo: " + modelo);
+        System.out.println("Cilindrada: " + cilindrada);
+        System.out.println("Tipo de combustible: " + combustible);
+        System.out.println("Capacidad en pasajeros: " + pasajeros);
     }
 }
-
